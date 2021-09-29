@@ -64,11 +64,11 @@ app.post('/login',async(req,res)=>{
      if(check){
        let verify = await bcrypt.compare(req.body.password,check.password);
        if(verify){
-           let token = await jwt.sign({user_id:check._id},process.env.JWT_KEY);
+          // let token = await jwt.sign({user_id:check._id},process.env.JWT_KEY);
            if(check.tags.length !== 0)
-           res.status(200).json({message:"Login Success", token:token, tags:true, userId:check.userId});
+           res.status(200).json({message:"Login Success",  userId:check.userId});
            else
-           res.status(200).json({message:"Login Success", token:token, tags:false, userId:check.userId});
+           res.status(200).json({message:"Login Success",  userId:check.userId});
        }
        else{
            res.status(400).json({message:"Invalid Password"})
