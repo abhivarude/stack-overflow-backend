@@ -313,5 +313,5 @@ function authenticate(req,res,next){
   }
 }
 
-app.listen(5001,()=>{console.log("Server is listening on "+port)});
+app.listen(port,()=>{console.log("Server is listening on "+port)});
 
